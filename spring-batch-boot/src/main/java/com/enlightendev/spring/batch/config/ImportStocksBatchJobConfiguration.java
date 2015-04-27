@@ -5,6 +5,7 @@ import com.enlightendev.spring.batch.domain.Stock;
 import com.enlightendev.spring.batch.processors.StockProcessor;
 import org.springframework.batch.core.Job;
 import org.springframework.batch.core.Step;
+import org.springframework.batch.core.configuration.annotation.DefaultBatchConfigurer;
 import org.springframework.batch.core.configuration.annotation.EnableBatchProcessing;
 import org.springframework.batch.core.configuration.annotation.JobBuilderFactory;
 import org.springframework.batch.core.configuration.annotation.StepBuilderFactory;
@@ -26,7 +27,6 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import javax.sql.DataSource;
 
 @Configuration
-@EnableBatchProcessing
 public class ImportStocksBatchJobConfiguration {
     
     @Bean
@@ -65,7 +65,7 @@ public class ImportStocksBatchJobConfiguration {
      *  where each step can involve a reader, a processor, and a writer.
      */
     @Bean
-    public Job importUserJob(JobBuilderFactory jobs, Step s1) {
+    public Job importStocksJob(JobBuilderFactory jobs, Step s1) {
         return jobs.get("importStockJob")
                 .incrementer(new RunIdIncrementer())
                 .flow(s1)
