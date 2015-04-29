@@ -12,7 +12,7 @@ import org.springframework.context.annotation.Configuration;
  */
 @Configuration
 @EnableBatchProcessing(modular=true)
-public class AppConfig extends DefaultBatchConfigurer {
+public class BatchConfig extends DefaultBatchConfigurer {
 
     @Bean
     public ApplicationContextFactory csvJob() {
