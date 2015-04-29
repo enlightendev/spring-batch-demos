@@ -1,0 +1,6 @@
+rootProject.name = 'spring-batch-demos'
+
+include 'spring-batch-basic'
+include 'spring-batch-xml'
+include 'spring-batch-boot'
+

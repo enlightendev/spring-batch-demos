@@ -1,0 +1,139 @@
+version = '1.0'
+
+buildscript {
+    repositories {
+        maven { url 'http://repo.spring.io/libs-milestone' }
+    }
+
+    dependencies {
+        classpath 'org.springframework.boot:spring-boot-gradle-plugin:1.1.0.RC1'
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+allprojects {
+    group = 'com.enlightendev'
+
+    repositories {
+        maven { url 'http://repo.spring.io/libs-milestone' }
+        maven { url 'http://repo.spring.io/plugins-release' }
+        maven { url "https://repo.spring.io/libs-snapshot" }
+
+        mavenCentral()
+    }
+
+    ext {
+        springBatchVersion = '3.0.0.RELEASE'
+        springVersion = '4.0.5.RELEASE'
+        springIntegrationVersion = '4.0.2.RELEASE'
+
+        commonsDdbcpVersion = '1.4'
+        mysqlConnectorJava = '5.1.29'
+        javaxInjectApiVersion = '1'
+        javaxBatchApiVersion = '1.0'
+        junitVersion = '4.11'
+    }
+}
+
+subprojects {
+    apply plugin: 'java'
+
+    compileJava {
+        sourceCompatibility=1.8
+        targetCompatibility=1.8
+        options.encoding='UTF-8'
+    }
+
+    compileTestJava {
+        sourceCompatibility=1.8
+        targetCompatibility=1.8
+        options.encoding='UTF-8'
+    }
+}
+
+project('spring-batch-basic') {
+
+    apply plugin: 'spring-boot'
+
+    dependencies {
+        //compile "org.springframework.boot:spring-boot-starter-web:1.2.3.RELEASE"
+        compile "org.springframework.boot:spring-boot-starter-batch"
+        compile "org.springframework.boot:spring-boot-starter-data-jpa"
+        compile "org.springframework.boot:spring-boot-starter-jdbc"
+        compile "mysql:mysql-connector-java:$mysqlConnectorJava"
+
+        testCompile "org.springframework.boot:spring-boot-starter-test"
+    }
+
+    jar {
+        manifest {
+            attributes("Manifest-Version": '1.0',
+                    "Created-By": "${System.getProperty('java.version')} (${System.getProperty('java.specification.vendor')})",
+                    "Implementation-Title": project.name,
+                    "Implementation-Version": project.version,
+                    "Main-Class": 'com.enlightendev.spring.batch.Main',
+                    "Class-Path": configurations.compile.collect { it.getName() }.join(' ')
+            )
+        }
+    }
+
+/*
+    task copyLibs(type: Copy) {
+        from configurations.runtime
+        into buildDir.absolutePath + '/libs'
+    }
+
+    tasks['build'].dependsOn(['copyLibs']);
+    */
+}
+
+project('spring-batch-boot') {
+
+    apply plugin: 'spring-boot'
+
+    dependencies {
+        compile "org.springframework.boot:spring-boot-starter-web:1.2.3.RELEASE"
+        compile "org.springframework.boot:spring-boot-starter-batch"
+        compile "org.springframework.boot:spring-boot-starter-data-jpa"
+        compile "org.springframework.boot:spring-boot-starter-jdbc"
+        compile "mysql:mysql-connector-java:$mysqlConnectorJava"
+
+        testCompile "org.springframework.boot:spring-boot-starter-test"
+    }
+    jar {
+        manifest {
+            attributes("Manifest-Version": '1.0',
+                    "Created-By": "${System.getProperty('java.version')} (${System.getProperty('java.specification.vendor')})",
+                    "Implementation-Title": project.name,
+                    "Implementation-Version": project.version,
+                    "Main-Class": 'com.enlightendev.spring.batch.SpringBatchBootApplication',
+                    "Class-Path": configurations.compile.collect { it.getName() }.join(' ')
+            )
+        }
+    }
+/*
+    task copyLibs(type: Copy) {
+        from configurations.runtime
+        into buildDir.absolutePath + '/libs'
+    }
+
+    tasks['build'].dependsOn(['copyLibs']);*/
+}
+
+project('spring-batch-xml') {
+
+    apply plugin: 'spring-boot'
+
+    dependencies {
+        compile "org.springframework.boot:spring-boot-starter-web:1.2.3.RELEASE"
+        compile "org.springframework.boot:spring-boot-starter-batch"
+        compile "org.springframework.boot:spring-boot-starter-data-jpa"
+        compile "org.springframework.boot:spring-boot-starter-jdbc"
+        compile "mysql:mysql-connector-java:$mysqlConnectorJava"
+
+        testCompile "org.springframework.boot:spring-boot-starter-test"
+    }
+}
