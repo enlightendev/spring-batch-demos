@@ -4,3 +4,5 @@ include 'spring-batch-basic'
 include 'spring-batch-xml'
 include 'spring-batch-boot'
 
+include 'scratch'
+

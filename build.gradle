@@ -18,9 +18,9 @@ allprojects {
     group = 'com.enlightendev'
 
     repositories {
-        maven { url 'http://repo.spring.io/libs-milestone' }
+       // maven { url 'http://repo.spring.io/libs-milestone' }
         maven { url 'http://repo.spring.io/plugins-release' }
-        maven { url "https://repo.spring.io/libs-snapshot" }
+        //maven { url "https://repo.spring.io/libs-snapshot" }
 
         mavenCentral()
     }
