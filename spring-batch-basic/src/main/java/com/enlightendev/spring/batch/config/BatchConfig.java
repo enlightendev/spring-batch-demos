@@ -17,6 +17,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.Resource;
 import org.springframework.validation.BindException;
 
@@ -62,7 +63,8 @@ public class BatchConfig {
 
         FlatFileItemReader<Customer> reader = new FlatFileItemReader<Customer>();
         reader.setLineMapper(defaultLineMapper);
-        reader.setResource(fileName);
+        //reader.setResource(fileName);
+        reader.setResource(new ClassPathResource("customer.csv"));
         reader.afterPropertiesSet();
 
         return reader;
