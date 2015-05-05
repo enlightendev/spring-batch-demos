@@ -23,3 +23,14 @@ Reading in from flat files with complex formats, XML files (XML is streamed, nev
 or writing to files or XML, can be done with only XML configuration. The ability to abstract things like file and database 
 input and output from your code is an attribute of the maintainability of jobs written in Spring Batch.
 
+## Reference
+- http://www.javacodegeeks.com/2015/03/spring-batch-tutorial.html
+- https://github.com/codecentric/spring-batch-javaconfig/
+- http://www.codingpedia.org/ama/spring-batch-tutorial-with-spring-boot-and-java-configuration/
+- http://docs.spring.io/spring-batch/
+- https://www.youtube.com/watch?v=lHCPppMlylY
+- http://websystique.com/spring-batch-tutorial/
+
+- Safari:
+-- http://my.safaribooksonline.com/book/-/9781430234524
+-- http://my.safaribooksonline.com/book/programming/java/9781935182955
