@@ -24,12 +24,20 @@ or writing to files or XML, can be done with only XML configuration. The ability
 input and output from your code is an attribute of the maintainability of jobs written in Spring Batch.
 
 ## Reference
+- https://github.com/spring-projects/spring-batch/tree/master/spring-batch-samples
 - http://www.javacodegeeks.com/2015/03/spring-batch-tutorial.html
 - https://github.com/codecentric/spring-batch-javaconfig/
 - http://www.codingpedia.org/ama/spring-batch-tutorial-with-spring-boot-and-java-configuration/
 - http://docs.spring.io/spring-batch/
 - https://www.youtube.com/watch?v=lHCPppMlylY
 - http://websystique.com/spring-batch-tutorial/
+- https://github.com/podcastpedia/podcastpedia-batch
+
+-- codecentric
+- https://blog.codecentric.de/en/2013/06/spring-batch-2-2-javaconfig-part-5-modular-configurations/
+- https://blog.codecentric.de/en/2013/06/spring-batch-2-2-javaconfig-part-2-jobparameters-executioncontext-and-stepscope/
+- https://blog.codecentric.de/en/2013/07/spring-batch-2-2-javaconfig-part-6-partitioning-and-multi-threaded-step/
+
 
 - Safari:
 -- http://my.safaribooksonline.com/book/-/9781430234524
